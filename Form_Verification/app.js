@@ -9,10 +9,12 @@ d.addEventListener("DOMContentLoaded", ()=>{
     formulario.addEventListener("submit", (e)=>{
         e.preventDefault();
 
-        // getUser(username);
-        checkLength(username, 3, 15);
-        checkEmail(email);
-        matchPass(password, confirm_pass);
+        if(requiredFields([username, email, password, confirm_pass])){
+            // getUser(username);
+            matchPass(password, confirm_pass);
+            checkLength(username, 3, 15);
+            checkEmail(email);
+        }
     });
 });
 
@@ -40,12 +42,12 @@ function checkLength(input, min, max) {
     if (input.value.length < min) {
         console.log(
         input,
-        `${getUser(input)} debe tener mas de ${min} caracteres`
+        `${getField(input)} debe tener mas de ${min} caracteres`
     );
     } else if (input.value.length > max) {
         console.log(
         input,
-        `${getUser(input)} debe tener menos de ${max} caracteres`
+        `${getField(input)} debe tener menos de ${max} caracteres`
     );
     } else {
         console.log(input);
@@ -53,6 +55,20 @@ function checkLength(input, min, max) {
 }
 
 //Get username
-function getUser(input) {
+function getField(input) {
     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
+//Check required fields
+function requiredFields(inputArray) {
+    let isRequired = false;
+    inputArray.forEach(input => {
+        if(input.value.trim() === ""){
+            console.log(`${input}, ${getField(input)} is required`);
+            isRequired = true;
+        }else{
+            console.log("Todos los campos estan completos");
+        }
+    });
+    return isRequired;
 }
