@@ -1,3 +1,4 @@
+
 const d = document;
 const formulario = d.querySelector("#formulario");
 const username = d.getElementById("username");
@@ -64,11 +65,25 @@ function requiredFields(inputArray) {
     let isRequired = false;
     inputArray.forEach(input => {
         if(input.value.trim() === ""){
-            console.log(`${input}, ${getField(input)} is required`);
+            showError(input,`${getField(input)} is required`);
             isRequired = true;
         }else{
-            console.log("Todos los campos estan completos");
+            showSuccess(input)
         }
     });
     return isRequired;
+}
+
+//Show input error message
+function showError(input, message){
+    const formControl = input.parentElement;
+    formControl.className = 'form-control error';
+    // const small = formControl.querySelector('small');
+    // small.innerText = message;
+}
+
+// Show success outline
+function showSuccess(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success';
 }

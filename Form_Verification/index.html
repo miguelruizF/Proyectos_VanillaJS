@@ -5,25 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+
+        :root {
+        --success-color: #2ecc71;
+        --error-color: #e74c3c;
+        }
+        .form-control {
+        /* margin-bottom: 10px; */
+        /* padding-bottom: 15px; */
+        position: relative;
+        }
+        .form-control.success input {
+        border-color: var(--success-color);
+        }
+
+        .form-control.error input {
+        border-color: var(--error-color);
+        }
+
+        .form-control small {
+        color: var(--error-color);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        visibility: hidden;
+        }
+
+        .form-control.error small {
+        visibility: visible;
+        }
+    </style>
 </head>
 <body>
     <div class="w-full h-auto overflow-scroll block h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4 flex items-center justify-center">
-        <div class="bg-white py-6 px-10 sm:max-w-md w-full shadow-2xl shadow-gray-500 rounded">
+        <div class="bg-white py-6 px-10 sm:max-w-md w-full shadow-2xl shadow-gray-500 rounded container">
             <div class="sm:text-3xl text-2xl font-semibold text-center text-sky-600  mb-12">
                 Register With Us 
             </div>
             <form id="formulario" class="">
-                <div>
-                    <input id="username" type="text" class="focus:outline-none border-b w-full pb-2 border-sky-400 placeholder-gray-500"  placeholder="Username"/>
+                <div class="form-control">
+                    <input id="username" type="text" class="focus:outline-none border-b w-full pb-2 border-sky-400 placeholder-gray-500 mb-8"  placeholder="Username"/>
+                    <small>Error message</small>
                 </div>
-                <div>
-                    <input id="email" type="email" class="focus:outline-none border-b w-full pb-2 border-sky-400 placeholder-gray-500 my-8"  placeholder="Email"/>
+                <div class="form-control">
+                    <input id="email" type="email" class="focus:outline-none border-b w-full pb-2 border-sky-400 placeholder-gray-500 mb-8"  placeholder="Email"/>
+                    <small>Error message</small>
                 </div>
-                <div>
+                <div class="form-control">
                     <input id="password" type="password" class="focus:outline-none border-b w-full pb-2 border-sky-400 placeholder-gray-500 mb-8"  placeholder="Password"/>
+                    <small>Error message</small>
                 </div>
-                <div>
+                <div class="form-control">
                     <input id="confirm_pass" type="password" class="focus:outline-none border-b w-full pb-2 border-sky-400 placeholder-gray-500 mb-8"  placeholder="Confirm Password"/>
+                    <small>Error message</small>
                 </div>
                 <div class="flex justify-center my-4">
                     <button class="rounded-full  p-3 w-full sm:w-56   bg-gradient-to-r from-sky-600  to-teal-300 text-white text-lg font-semibold " type="submit">
