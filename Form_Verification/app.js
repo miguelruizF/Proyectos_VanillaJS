@@ -14,6 +14,7 @@ d.addEventListener("DOMContentLoaded", ()=>{
             // getUser(username);
             matchPass(password, confirm_pass);
             checkLength(username, 3, 15);
+            checkLength(password, 6, 25);
             checkEmail(email);
         }
     });
@@ -23,35 +24,33 @@ d.addEventListener("DOMContentLoaded", ()=>{
 function checkEmail(email) {
     const expression_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(expression_email.test(email.value.trim())){
-        console.log("El email es correcto")
+        showSuccess(email)
     }else{
-        console.log("El email no es correcto");
+        showError(email,'El email no es correcto');
     }
 }
 
 //passwords Match
 function matchPass(input1, input2) {
     if(input1.value != input2.value){
-        console.log(`${input2} La contraseña no coincide`);
-    }else{
-        console.log("Las contraseñas coinciden")
+        showError(input2, 'La contraseña no coincide');
     }
 }
 
 //Check input length
 function checkLength(input, min, max) {
     if (input.value.length < min) {
-        console.log(
+        showError(
         input,
         `${getField(input)} debe tener mas de ${min} caracteres`
     );
     } else if (input.value.length > max) {
-        console.log(
+        showError(
         input,
         `${getField(input)} debe tener menos de ${max} caracteres`
     );
     } else {
-        console.log(input);
+        showSuccess(input);
     }
 }
 
@@ -78,8 +77,8 @@ function requiredFields(inputArray) {
 function showError(input, message){
     const formControl = input.parentElement;
     formControl.className = 'form-control error';
-    // const small = formControl.querySelector('small');
-    // small.innerText = message;
+    const small = formControl.querySelector('small');
+    small.innerText = message;
 }
 
 // Show success outline
