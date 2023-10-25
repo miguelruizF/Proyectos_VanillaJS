@@ -1,21 +1,29 @@
-
 const d = document;
 const formulario = d.querySelector("#formulario");
 const username = d.getElementById("username");
 const email = d.querySelector("#email");
 const password = d.querySelector("#password");
 const confirm_pass = d.querySelector("#confirm_pass");
+const modal = d.getElementById("popup-modal");
+const text_modal = d.getElementById("text-h3");
+const btn_cerrar = d.getElementById("btn_cerrar");
 
 d.addEventListener("DOMContentLoaded", ()=>{
     formulario.addEventListener("submit", (e)=>{
         e.preventDefault();
-
+        
         if(requiredFields([username, email, password, confirm_pass])){
-            // getUser(username);
-            matchPass(password, confirm_pass);
-            checkLength(username, 3, 15);
-            checkLength(password, 6, 25);
-            checkEmail(email);
+            
+            // matchPass(password, confirm_pass);
+            // checkLength(username, 3, 15);
+            // checkLength(password, 6, 25);
+            // checkEmail(email);
+
+            modal.classList.remove("hidden");
+            text_modal.innerText = "Los items estan vacios";
+            setTimeout(() => {
+                modal.classList.add("hidden");
+            }, 2000);
         }
     });
 });
