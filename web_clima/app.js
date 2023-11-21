@@ -1,6 +1,6 @@
 
 const d = document;
-const contenedor = d.querySelector("#container");
+const contenedor = d.getElementById("container");
 const formulario = d.querySelector("#formulario");
 
 window.addEventListener("load", ()=>{
@@ -53,9 +53,35 @@ function consultarAPI(ciudad, pais) {
     fetch(url)
         .then(respuesta => respuesta.json())
         .then(datos => {
+            limpiarHTML() //Limpiar HTML previo
             if(datos.cod === "404"){
                 imprimirAlerta("Ciudad no encontrada");
+                return;
             }
             console.log(datos)
+            //Imprimir datos en el HTML
+            mostrarDatos(datos);
         })
+}
+
+function mostrarDatos(datos){
+    const {main:{temp, temp_max, temp_min}} = datos;
+    const centrigrados = (temp - 273.15).toFixed(2);
+    // console.log(temp);
+    const actual = d.createElement("p");
+    actual.innerHTML = `${centrigrados} &#8451`;
+    actual.classList.add("font-bold", "text-6xl");
+
+    const resultadoDiv = d.createElement("div");
+    resultadoDiv.classList.add("text-center", "text-white", "mb-5");
+    resultadoDiv.appendChild(actual);
+    
+    contenedor.appendChild(resultadoDiv)
+    // d.querySelector("#cont_2").insertBefore(resultadoDiv, formulario);
+}
+
+function limpiarHTML(){
+    while(contenedor.firstChild){
+        contenedor.removeChild(contenedor.firstChild);
+    }
 }
