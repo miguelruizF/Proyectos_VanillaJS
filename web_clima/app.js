@@ -1,6 +1,7 @@
 
 const d = document;
 const contenedor = d.getElementById("container");
+const contenedorAlert = d.getElementById("container_2");
 const formulario = d.querySelector("#formulario");
 
 window.addEventListener("load", ()=>{
@@ -35,7 +36,7 @@ function imprimirAlerta(mensaje){
     
         `;
         //Se agrega la alerta al contenedor padre
-        contenedor.appendChild(divAlerta);
+        contenedorAlert.appendChild(divAlerta);
 
         setTimeout(() => {
             divAlerta.remove();
@@ -50,6 +51,7 @@ function consultarAPI(ciudad, pais) {
 
     //Hacer consulta
     // console.log(url);
+    spiner();
     fetch(url)
         .then(respuesta => respuesta.json())
         .then(datos => {
@@ -65,16 +67,34 @@ function consultarAPI(ciudad, pais) {
 }
 
 function mostrarDatos(datos){
-    const {main:{temp, temp_max, temp_min}} = datos;
-    const centrigrados = (temp - 273.15).toFixed(2);
+    const {name, main:{temp, temp_max, temp_min}} = datos;
+    // const centrigrados = (temp - 273.15).toFixed(2);
+    const centigrados = formatoGrados(temp);
+    const max = formatoGrados(temp_max);
+    const min = formatoGrados(temp_min);
+
+    const nombreCiudad = d.createElement("p");
+    nombreCiudad.classList.add("text-2xl", "mb-2")
+    nombreCiudad.textContent = `Clima en ${name}`;
     // console.log(temp);
     const actual = d.createElement("p");
-    actual.innerHTML = `${centrigrados} &#8451`;
+    actual.innerHTML = `${centigrados} &#8451`;
     actual.classList.add("font-bold", "text-6xl");
 
+    const tempMax = d.createElement("p");
+    tempMax.innerHTML = `Max: ${max} &#8451`;
+    tempMax.classList.add("text-xl");
+
+    const tempMin = d.createElement("p");
+    tempMin.innerHTML = `Min: ${min} &#8451`;
+    tempMin.classList.add("text-xl");
+
     const resultadoDiv = d.createElement("div");
-    resultadoDiv.classList.add("text-center", "text-white", "mb-5");
+    resultadoDiv.classList.add("text-center", "text-gray-700", "mb-5");
+    resultadoDiv.appendChild(nombreCiudad);
     resultadoDiv.appendChild(actual);
+    resultadoDiv.appendChild(tempMax);
+    resultadoDiv.appendChild(tempMin);
     
     contenedor.appendChild(resultadoDiv)
     // d.querySelector("#cont_2").insertBefore(resultadoDiv, formulario);
@@ -84,4 +104,24 @@ function limpiarHTML(){
     while(contenedor.firstChild){
         contenedor.removeChild(contenedor.firstChild);
     }
+}
+
+function formatoGrados(grados){
+    return parseInt(grados - 273.15);
+}
+
+//Spiner
+function spiner(){
+    limpiarHTML();
+    const divSpiner = d.createElement("div");
+    divSpiner.classList.add("sk-chase", "place-content-center", "flex", "items-center", "justify-center", "w-full");
+    divSpiner.innerHTML = `
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+    `;
+    contenedor.appendChild(divSpiner);
 }
