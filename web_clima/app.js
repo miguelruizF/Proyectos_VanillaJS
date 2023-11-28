@@ -12,15 +12,17 @@ function buscarClima(e){
     e.preventDefault();
 
     const ciudad = d.querySelector("#ciudad").value;
-    const pais = d.querySelector("#pais").value;
+    // const pais = d.querySelector("#pais").value;
 
     // console.log(pais);
-    if(ciudad === "" || pais === ""){
+    // if(ciudad === "" || pais === ""){
+    if(ciudad === ""){
         imprimirAlerta("Todos los campos son requeridos");
         return;
     }
 
-    consultarAPI(ciudad, pais);
+    // consultarAPI(ciudad, pais);
+    consultarAPI(ciudad);
 }
 
 function imprimirAlerta(mensaje){
@@ -45,9 +47,10 @@ function imprimirAlerta(mensaje){
 
 }
 
-function consultarAPI(ciudad, pais) {
+function consultarAPI(ciudad) {
     const api_key = "6e72da485ac0d01848cf8fb0b07def4a";
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&APPID=${api_key}`;
+    // const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&APPID=${api_key}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&APPID=${api_key}`;
 
     //Hacer consulta
     // console.log(url);
@@ -67,15 +70,16 @@ function consultarAPI(ciudad, pais) {
 }
 
 function mostrarDatos(datos){
-    const {name, main:{temp, temp_max, temp_min}} = datos;
+    const {name, main:{temp, temp_max, temp_min}, dt, timezone} = datos;
     // const centrigrados = (temp - 273.15).toFixed(2);
     const centigrados = formatoGrados(temp);
     const max = formatoGrados(temp_max);
     const min = formatoGrados(temp_min);
 
     const nombreCiudad = d.createElement("p");
-    nombreCiudad.classList.add("text-2xl", "mb-2")
-    nombreCiudad.textContent = `Clima en ${name}`;
+    nombreCiudad.classList.add("text-2xl", "mb-4")
+    // nombreCiudad.textContent = `Clima en ${name}`;
+    nombreCiudad.innerHTML = `${name}, ${convertCountryCode(datos.sys.country)}`
     // console.log(temp);
     const actual = d.createElement("p");
     actual.innerHTML = `${centigrados} &#8451`;
@@ -89,12 +93,17 @@ function mostrarDatos(datos){
     tempMin.innerHTML = `Min: ${min} &#8451`;
     tempMin.classList.add("text-xl");
 
+    const dateTime = d.createElement("p");
+    dateTime.innerHTML = convertTime(dt, timezone);
+    dateTime.classList.add("text-xl", "pt-4")
+
     const resultadoDiv = d.createElement("div");
     resultadoDiv.classList.add("text-center", "text-gray-700", "mb-5");
     resultadoDiv.appendChild(nombreCiudad);
     resultadoDiv.appendChild(actual);
     resultadoDiv.appendChild(tempMax);
     resultadoDiv.appendChild(tempMin);
+    resultadoDiv.appendChild(dateTime)
     
     contenedor.appendChild(resultadoDiv)
     // d.querySelector("#cont_2").insertBefore(resultadoDiv, formulario);
@@ -124,4 +133,29 @@ function spiner(){
         <div class="sk-chase-dot"></div>
     `;
     contenedor.appendChild(divSpiner);
+}
+
+//Funcion Convertir ciudad
+function convertCountryCode(country){
+    let regionNames = new Intl.DisplayNames(["es"],{type:"region"});
+    return regionNames.of(country);
+}
+
+//Funcion tiempo
+function convertTime(timestamp, timezone){
+    const convertTimeZone = timezone / 3600;
+
+    const date = new Date(timestamp * 1000);
+
+    const options = {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        timezone: `Etc/GMT${convertTimeZone >= 0 ? "-" : "+"}${Math.abs(convertTimeZone)}`,
+        hour12: true,
+    }
+    return date.toLocaleDateString("es-ES", options);
 }
