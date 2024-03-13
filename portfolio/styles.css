@@ -54,3 +54,48 @@ header{
     height: auto;
     margin-right: 12px;
 }
+
+.nav{
+    display: flex;
+}
+
+.nav a{
+    font-size: var(--p-font);
+    font-weight: 400;
+    margin: 0 20px;
+    color: var(--text-color);
+    transition: all .50s ease;
+}
+
+.nav a:hover{
+    color: var(--main-color);
+}
+
+.right-nav{
+    display: flex;
+    align-items: center;
+}
+
+.right-btn{
+    display: inline-block;
+    padding: 15px 26px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 30px;
+    background: var(--other-color);
+    color: var(--bg-color);
+    margin-right: 20px;
+    transition: all .50s ease;
+}
+
+.right-btn:hover{
+    background: var(--main-color);
+    color: var(--text-color);
+}
+
+#menu-icon{
+    font-size: 40px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+}
