@@ -278,3 +278,68 @@ header.sticky{
     border: 2px solid var(--main-color);
     cursor: pointer;
 }
+
+.cta{
+    padding: 20px 13% 90px;
+}
+
+.cta-content{
+    padding: 70px 100px;
+    background: var(--second-bg-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border-radius: 30px;
+}
+
+.cta-text h4{
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px ;
+}
+
+.cta-text p{
+    font-size: var(--p-font);
+    font-weight: 400;
+    color: var(--second-color);
+}
+
+.cta-btn{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 20px;
+}
+
+.cta-btn1{
+    display: inline-block;
+    padding: 14px 25px;
+    color: var(--bg-color);
+    background: var(--other-color);
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all .5s ease;
+}
+
+.cta-btn1:hover{
+    background: var(--main-color);
+    color: var(--text-color);
+}
+
+.cta-btn2{
+    display: inline-block;
+    padding: 14px 25px;
+    color: var(--text-color);
+    background: var(--main-color);
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all .5s ease;
+}
+
+.cta-btn2:hover{
+    transform: scale(1.1);
+}
