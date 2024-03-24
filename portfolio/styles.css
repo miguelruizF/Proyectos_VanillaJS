@@ -469,4 +469,132 @@ header.sticky{
     cursor: pointer;
 }
 
+.footer{
+    padding: 20px 13%;
+    background: var(--main-color);
+    text-align: center;
+    font-size: var(--p-font);
+    font-weight: 400;
+}
 
+@media (max-width: 1650px) {
+    header{
+        padding: 18px 7%;
+    }
+    header.sticky{
+        padding: 14px 7%;
+    }
+    section{
+        padding: 80px 7% 70px;
+    }
+    .cta{
+        padding: 20px 7% 70px;
+    }
+}
+
+@media (max-width: 1330px) {
+    header{
+        padding: 18px 5%;
+    }
+    header.sticky{
+        padding: 14px 5%;
+    }
+    section{
+        padding: 80px 5% 70px;
+    }
+    .cta{
+        padding: 20px 5% 70px;
+    }
+    :root{
+        --h1-font: 4.7rem;
+        --h2-font: 3.5rem;
+        --p-font: 15px;
+    }
+    .services-content{
+        grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+    }
+}
+
+@media (max-width: 1170px) {
+    .home{
+        height: 90vh;
+    }
+    :root{
+        --h1-font: 4.5rem;
+    }
+    .cta-content{
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 70px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .about{
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+    .contact{
+        grid-template-columns: 1fr;
+    }
+    .cta-btn{
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .cta-content{
+        padding: 40px 50px;
+    }
+}
+
+@media (max-width: 950px){
+    :root{
+        --h1-font: 4rem;
+        --h2-font: 3rem;
+    }
+    #menu-icon{
+        display: block;
+    }
+    .nav{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 100%;
+        min-height: 100vh;
+        width: 100%;
+        padding: 70px 60px;
+        display: flex;
+        flex-direction: column;
+        background: #1a1330;
+        transition: all 0.6s ease-in-out;
+    }
+    .nav a{
+        display: block;
+        padding: 0;
+        margin: 0 0 25px 0;
+        font-size: 2.1rem;
+        font-weight: 500;
+    }
+    .nav.open{
+        left: 0;
+    }
+}
+
+@media (max-width: 580px){
+    :root{
+        --h1-font: 3.5rem;
+        --h2-font: 2.7rem;
+    }
+    .count li{
+        font-size: 18px;
+    }
+    .count span{
+        font-size: 2rem;
+    }
+    .btn{
+        padding: 15px 28px;
+        font-size: 15px;
+    }
+}

@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <!--AOS Animation-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <!--Header Section-->
@@ -38,7 +40,7 @@
     </header>
     <!--Home Section-->
     <section class="home" id="home">
-        <div class="home-text">
+        <div class="home-text" data-aos="zoom-in-up">
             <h3>👋 Let's meet</h3>
             <h1>Hi <span>ELEN WALKER</span><br>Web Developer!</h1>
             
@@ -55,10 +57,10 @@
 
     <!--About Section-->
     <section class="about" id="about">
-        <div class="about-img">
+        <div class="about-img" data-aos="fade-down">
             <img src="./img/about.png" alt="About Imagen">
         </div>
-        <div class="about-text">
+        <div class="about-text" data-aos="fade-up">
             <h2>About Me</h2>
             <h4>A Passionate <span>Web Developer!!!</span></h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sequi error fugit animi! Itaque architecto ducimus maiores culpa neque totam possimus sunt ea, asperiores quasi ex vero placeat. Commodi neque veniam adipisci, eum maxime ullam, reiciendis quibusdam sequi quos iusto deserunt aliquid, ipsum omnis! In numquam beatae exercitationem fugiat dolor.</p>
@@ -70,10 +72,10 @@
     
     <!--Service Section-->
     <section class="services" id="services">
-        <div class="middle-text">
+        <div class="middle-text" data-aos="fade-down">
             <h2>My services</h2>
         </div>
-        <div class="services-content">
+        <div class="services-content" data-aos="zoom-in-up">
             <div class="col">
                 <h3>01</h3>
                 <h4>Web Design</h4>
@@ -103,7 +105,7 @@
     
     <!--Cita Section-->
     <section class="cta">
-        <div class="cta-content">
+        <div class="cta-content" data-aos="zoom-in-down">
             <div class="cta-text">
                 <h4>Have any project in mind?</h4>
                 <p>I'm available for freelancing</p>
@@ -121,11 +123,11 @@
     
     <!--Testimonial Section-->
     <section class="testimonial" id="testimonial">
-        <div class="middle-text">
+        <div class="middle-text" data-aos="fade-down">
             <h2>Our Clients</h2>
         </div>
         
-        <div class="testimonial-content">
+        <div class="testimonial-content" data-aos="zoom-in">
             <div class="row">
                 <img src="./img/tt.jpg" alt="testimonial        ">
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut est cupiditate qui illo assumenda eius veniam dolore voluptate enim reprehenderit.</p>
@@ -137,7 +139,7 @@
     
     <!--Contact Section-->
     <section class="contact" id="contact">
-        <div class="contact-text">
+        <div class="contact-text" data-aos="fade-down">
             <h5>Contact Me</h5>
             <h2>Lets Discuss Your Project</h2>
             <div class="contact-icons">
@@ -147,7 +149,7 @@
             </div>
         </div>
 
-        <div class="contact-form">
+        <div class="contact-form" data-aos="fade-up">
             <form action="">
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="E-mail" required>
@@ -158,7 +160,20 @@
         </div>
     </section>
 
+    <!--Footer-->
+    <div class="footer">
+        <p>© 2018-2024, All Rights Reserved</p>
+    </div>
+
     <!--JS script-->
     <script src="index.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 500,
+            duration: 1400
+        });
+    </script>
 </body>
 </html>
