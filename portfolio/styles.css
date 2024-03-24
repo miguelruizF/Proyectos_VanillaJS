@@ -393,3 +393,80 @@ header.sticky{
     transform: scale(1.1);
     cursor: pointer;
 }
+
+.contact{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 5rem;
+}
+
+.contact-text h5{
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--second-color);
+    margin-bottom: 20px;
+}
+
+.contact-text h2{
+    font-size: var(--h2-font);
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.contact-icons i{
+    display: inline-block;
+    font-size: 25px;
+    color: var(--main-color);
+    margin-right: 20px;
+    transition: all .5s ease;
+}
+
+
+.contact-icons i:hover{
+    transform: translateY(-5px);
+    color: var(--text-color);
+}
+
+.contact-form form{
+    position: relative;
+}
+
+.contact-form form input, form textarea{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 18px;
+    background: var(--second-bg-color);
+    color: var(--second-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 12px;
+}
+
+.contact-form textarea{
+    resize: none;
+    height: 220px;
+}
+
+.contact-form .contact-btn{
+    border: none;
+    outline: none;
+    width: 100%;
+    max-width: 200px;
+    display: inline-block;
+    padding: 20px 22px;
+    color: var(--text-color);
+    background: var(--main-color);
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all .5s ease;
+}
+
+.contact-form .contact-btn:hover{
+    transform: scale(1.09);
+    cursor: pointer;
+}
+
+
