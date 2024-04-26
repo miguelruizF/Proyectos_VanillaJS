@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscardor de Imagenes</title>
+    <link rel="stylesheet" href="styles.css">
 
     <!--Tailwind CSS-->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <main class="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% h-screen w-full verflow-scroll block">
+    <main class="bg-auto bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% h-full max-h-full w-full verflow-scroll block">
         <div class="flex flex-col w-full items-center pt-10">
-            <h2 class="text-white font-bold pt-6 pb-6 text-2xl">BUSCADOR DE IMAGENES - PIXABAY</h2>
+            <h2 class="text-white font-bold pt-6 pb-6 text-2xl text-center">BUSCADOR DE IMAGENES - PIXABAY</h2>
             <form action="" class="flex flex-col w-1/2 items-center" id="formulario">
                 <label for="text_busqueda" class="text-white font-bold text-lg">Termino Busqueda</label>
                 <input type="text" name="" id="text_busqueda" class="bg-zinc-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-3 mt-3"  placeholder="Termino de busqueda">
@@ -19,7 +20,7 @@
             </form>
         </div>
 
-        <div id="resultado" class="container flex flex-wrap mt-6"></div>
+        <div id="resultado" class="items-center flex flex-wrap mt-6"></div>
         <div id="paginacion" class="container mx-auto mt-4 mb-10 text-center"></div>
     </main>
 <!--Script JS-->
