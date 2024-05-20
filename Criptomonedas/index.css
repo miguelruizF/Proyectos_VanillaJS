@@ -1,0 +1,33 @@
+:root{
+    --bg-black: #000;
+}
+
+*, 
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    font-size: 100%;
+    list-style-type: none;
+    background-color: var(--bg-black);
+}
+
+.div_grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+.div_img{
+    background-image: url(img/criptomoneda-bitcoin-etherum-economia-tecnologia.jpg.webp);
+    background-position: center center;
+    background-size: auto;
+    background-repeat: no-repeat, repeat;
+    width: 100%;
+}
