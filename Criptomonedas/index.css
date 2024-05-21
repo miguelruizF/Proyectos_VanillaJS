@@ -21,13 +21,41 @@ body{
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
     height: 100vh;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .div_img{
-    background-image: url(img/criptomoneda-bitcoin-etherum-economia-tecnologia.jpg.webp);
-    background-position: center center;
-    background-size: auto;
-    background-repeat: no-repeat, repeat;
+    /* background-image: url(img/criptomoneda-bitcoin-etherum-economia-tecnologia.jpg.webp); */
+    /* background-position: center; */
+    /* background-size: auto;
+    background-repeat: no-repeat, repeat; */
     width: 100%;
+    /* height: 100vh; */
+    mask-image: linear-gradient (black, transparent);
+    -webkit-mask-image: linear-gradient(black, transparent);
+    & img{
+        width: 100%;
+        height: 90%;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
 }
+
+@media (max-width: 980px) {
+    .div_grid{
+        display: inline;
+    }
+    .div_img{
+        height: 80%;
+    }
+}
+
+/* @media (max-width: 768px) {
+    .div_grid{
+        display: inline;
+    }
+    .div_img{
+        height: 80%;
+    }
+} */
