@@ -1,5 +1,6 @@
 :root{
     --bg-black: #000;
+    --bg-white: #fff;
 }
 
 *, 
@@ -39,6 +40,12 @@ body{
         margin: 0;
         padding: 0;
         border: none;
+    }
+}
+
+.div_input{
+    & label{
+        color:var(--bg-white);
     }
 }
 
