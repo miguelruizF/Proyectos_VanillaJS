@@ -1,6 +1,15 @@
 :root{
     --bg-black: #000;
     --bg-white: #fff;
+    --bg-text: #3b3b3b;
+    --bg-button: #4bc970;
+    --bg-green: #247a3e;
+    --font:"Nunito", sans-serif;
+    --title: 20px;
+    --text: 16px;
+    --text_bold: 700;
+    --text_light: 200;
+    --text_medium: 500;
 }
 
 *, 
@@ -12,6 +21,7 @@
     text-decoration: none;
 }
 body{
+    font-family: var(--font);
     font-size: 100%;
     list-style-type: none;
     background-color: var(--bg-black);
@@ -43,9 +53,54 @@ body{
     }
 }
 
+.div_content{
+    width: 70%;
+}
+
 .div_input{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
     & label{
         color:var(--bg-white);
+    }
+    & .title{
+        font-size: var(--title);
+        margin: 10px 0;
+        font-weight: var(--text_bold);
+    }
+    & .inputs{
+        background: rgba(255,255,255,0.1);
+        border: none;
+        font-size: var(--text);
+        height: auto;
+        margin: 0;
+        outline: 0;
+        padding: 10px;
+        width: 100%;
+        background-color: #e8eeef;
+        color: var(--bg-text);
+        border-radius: 5px;
+        /* box-shadow: 0 1px 0 rgba(0,0,0,0.03)  */
+    }
+}
+
+button[type="submit"]{
+    padding: 10px;
+    color: var(--bg-white);
+    background-color: var(--bg-button);
+    font-size: var(--text);
+    font-weight: var(--text_bold);
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #3ac162;
+    /* border-width: 1px 1px 3px; */
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+    margin: 20px 0;
+    &:hover{
+        background-color: var(--bg-green);
+        transition: all .3s ease-in-out;
     }
 }
 
