@@ -13,11 +13,11 @@
             <img src="img/criptomoneda-bitcoin-etherum-economia-tecnologia.jpg.webp" alt="">
         </div>
         <div class="div_content">
-            <form action="">
+            <form action="" id="formulario">
                 <div class="div_input">
                     <label class="title" for="">ELIGE TU MONEDA</label>
-                    <Select class="inputs">
-                        <option value="">Elige tu moneda</option Select>
+                    <Select class="inputs" id="moneda" name="moneda">
+                        <option value="" disabled selected>Elige tu moneda</option Select>
                         <option value="USD">Dolar Estadounidense</option>
                         <option value="MXN">Peso Mexicano</option>
                         <option value="GBP">Libra Esterlina</option>
@@ -26,8 +26,8 @@
                 </div>
                 <div class="div_input">
                     <label class="title" for="">ELIGE TU CRIPTOMONEDA</label>
-                    <select type="text" class="inputs" id="criptomoneda">
-                        <option value="">Elige tu criptomoneda</option Select>
+                    <select type="text" class="inputs" id="criptomoneda" name="criptomoneda">
+                        <option value="" disabled selected>Elige tu criptomoneda</option Select>
                     </select>
                 </div>
                 <button type="submit" class="btn_cotizar">COTIZAR</button>
