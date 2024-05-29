@@ -4,6 +4,7 @@
     --bg-text: #3b3b3b;
     --bg-button: #4bc970;
     --bg-green: #247a3e;
+    --bg-red: #ca2a2a;
     --font:"Nunito", sans-serif;
     --title: 20px;
     --text: 16px;
@@ -103,6 +104,16 @@ button[type="submit"]{
         background-color: var(--bg-green);
         transition: all .3s ease-in-out;
     }
+}
+
+.error{
+    color: var(--bg-white);
+    background-color: var(--bg-red);
+    padding: 10px 0;
+    margin: 2px 0;
+    text-align: center;
+    font-weight: var(--text_bold);
+    border-radius: 5px;
 }
 
 @media (max-width: 980px) {
