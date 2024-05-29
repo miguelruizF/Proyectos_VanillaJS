@@ -2,6 +2,7 @@ const d = document;
 const formulario = d.querySelector("#formulario");
 const criptomonedasSelect = d.querySelector("#criptomoneda");
 const monedaSelect = d.querySelector("#moneda");
+const infoResult = d.querySelector("#div_result");
 
 const objInfo = {
     moneda: "",
@@ -55,6 +56,9 @@ function submitFormulario(e) {
         mostrarAlerta("Ambos campos no deben de estar vacios");
         return; //Cortar ejecucion
     }
+
+    //Consultar API
+    consultarAPI();
 }
 
 function mostrarAlerta(msg) {
@@ -72,4 +76,27 @@ function mostrarAlerta(msg) {
             msgError.remove()
         }, 2000);
     }
+}
+
+
+function consultarAPI() {
+    const {moneda, criptomoneda} = objInfo;
+
+    const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`;
+
+    fetch(url)
+        .then(respuesta => respuesta.json())
+        .then(cotizacion => {
+            mostrarCotizacion(cotizacion.DISPLAY[criptomoneda][moneda]);
+        })
+}
+
+function mostrarCotizacion(cotizacion) {
+    const {PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, LASTUPDATE} = cotizacion;
+
+    const precio = d.createElement('p');
+    precio.classList.add('precio');
+    precio.innerHTML = `El precio es: ${PRICE}`;
+
+    infoResult.appendChild(precio);
 }

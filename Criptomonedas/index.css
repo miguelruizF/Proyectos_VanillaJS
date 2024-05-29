@@ -116,6 +116,10 @@ button[type="submit"]{
     border-radius: 5px;
 }
 
+.precio{
+    color: var(--bg-white);
+}
+
 @media (max-width: 980px) {
     .div_grid{
         display: inline;
