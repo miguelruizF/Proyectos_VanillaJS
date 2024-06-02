@@ -59,6 +59,9 @@ function submitFormulario(e) {
 
     //Consultar API
     consultarAPI();
+
+    //Limpiar HTML
+    // limpiarHTML();
 }
 
 function mostrarAlerta(msg) {
@@ -92,11 +95,38 @@ function consultarAPI() {
 }
 
 function mostrarCotizacion(cotizacion) {
+    limpiarHTML()
     const {PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, LASTUPDATE} = cotizacion;
 
     const precio = d.createElement('p');
     precio.classList.add('precio');
-    precio.innerHTML = `El precio es: ${PRICE}`;
+    precio.innerHTML = `El precio es: <span>${PRICE}</span>`;
 
+    const precioAlto = d.createElement('p');
+    precioAlto.classList.add('precio');
+    precioAlto.innerHTML = `El precio es mas alto del dia: <span>${HIGHDAY}</span>`;
+
+    const precioBajo = d.createElement('p');
+    precioBajo.classList.add('precio');
+    precioBajo.innerHTML = `El precio mas bajo del dia: <span>${LOWDAY}</span>`;
+
+    const variacionHoras = d.createElement('p');
+    variacionHoras.classList.add('precio');
+    variacionHoras.innerHTML = `Variacion del precio ultimas 24 hrs: <span>${CHANGEPCT24HOUR}%</span>`;
+
+    const ultimaActualizacion = d.createElement('p');
+    ultimaActualizacion.classList.add('precio');
+    ultimaActualizacion.innerHTML = `Ultima actualizacion: <span>${LASTUPDATE}</span>`;
+    
     infoResult.appendChild(precio);
+    infoResult.appendChild(precioAlto);
+    infoResult.appendChild(precioBajo);
+    infoResult.appendChild(variacionHoras);
+    infoResult.appendChild(ultimaActualizacion);
+}
+
+function limpiarHTML() {
+    while(infoResult.firstChild){
+        infoResult.removeChild(infoResult.firstChild);
+    }
 }
