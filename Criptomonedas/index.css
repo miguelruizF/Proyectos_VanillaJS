@@ -28,6 +28,10 @@ body {
     background-color: var(--bg-black);
 }
 
+span{
+    font-weight: var(--text_bold);
+}
+
 .div_grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -118,6 +122,14 @@ button[type="submit"] {
 
 .precio {
     color: var(--bg-white);
+    font-size: 30px;
+    padding: 15px 0;
+}
+
+.precio_info{
+    color: var(--bg-white);
+    font-size: var(--title);
+    padding: 5px 0;
 }
 
 @media (max-width: 980px) {
@@ -140,8 +152,8 @@ button[type="submit"] {
 
 .sk-circle {
     margin: 100px auto;
-    width: 40px;
-    height: 40px;
+    width: 70px;
+    height: 70px;
     position: relative;
 }
 .sk-circle .sk-child {
@@ -157,7 +169,7 @@ button[type="submit"] {
     margin: 0 auto;
     width: 15%;
     height: 15%;
-    background-color: #333;
+    background-color: var(--bg-white);
     border-radius: 100%;
     -webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
     animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
