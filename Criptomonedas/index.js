@@ -87,6 +87,8 @@ function consultarAPI() {
 
     const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`;
 
+    mostrarSpiner();
+
     fetch(url)
         .then(respuesta => respuesta.json())
         .then(cotizacion => {
@@ -129,4 +131,29 @@ function limpiarHTML() {
     while(infoResult.firstChild){
         infoResult.removeChild(infoResult.firstChild);
     }
+}
+
+function mostrarSpiner() {
+    limpiarHTML();
+
+    const spiner =  d.createElement('div');
+    spiner.classList.add('sk-circle');
+
+    spiner.innerHTML = `
+    <div class="sk-circle1 sk-child"></div>
+    <div class="sk-circle2 sk-child"></div>
+    <div class="sk-circle3 sk-child"></div>
+    <div class="sk-circle4 sk-child"></div>
+    <div class="sk-circle5 sk-child"></div>
+    <div class="sk-circle6 sk-child"></div>
+    <div class="sk-circle7 sk-child"></div>
+    <div class="sk-circle8 sk-child"></div>
+    <div class="sk-circle9 sk-child"></div>
+    <div class="sk-circle10 sk-child"></div>
+    <div class="sk-circle11 sk-child"></div>
+    <div class="sk-circle12 sk-child"></div>
+    `;
+
+    infoResult.appendChild(spiner);
+
 }
