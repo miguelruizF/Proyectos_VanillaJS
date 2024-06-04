@@ -135,6 +135,13 @@ button[type="submit"] {
 @media (max-width: 980px) {
     .div_grid {
         display: inline;
+        position: relative;
+    }
+
+    .div_content{
+        position: absolute;
+        left: 15%;
+        top: 10%;
     }
     .div_img {
         height: 80%;
