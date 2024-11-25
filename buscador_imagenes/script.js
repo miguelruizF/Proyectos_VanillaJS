@@ -44,14 +44,14 @@ function mostrarAlerta(mensaje){
     
 }
 
-function buscarImagenes() {
+async function buscarImagenes() {
     const termino = document.querySelector("#text_busqueda").value;
     const key = API_KEY;
     const url =`https://pixabay.com/api/?key=${ key }&q=${termino}&per_page=${imagenesPorPagina}&page=${paginaActual}`;
 
     //console.log(url); //Debug parra revisar si funciona la API
 
-    fetch(url)
+    /* fetch(url)
         .then(respuesta => respuesta.json())
         .then(resultado => {
             totalPaginas = calcularPaginas(resultado.totalHits);
@@ -59,6 +59,15 @@ function buscarImagenes() {
             // console.log(totalPaginas)
             // console.log(resultado)
         })
+ */
+    try {
+        const respuesta = await fetch(url);
+        const resultado = await respuesta.json();
+        totalPaginas = calcularPaginas(resultado.totalHits);
+        mostrarImagenes(resultado.hits);
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 //Generador de paginas
